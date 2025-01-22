@@ -9,11 +9,20 @@ const router = new Navigo("/");
 function render(state = store.home) {
   document.querySelector("#root").innerHTML = `
     ${header(state)}
-    ${nav(store.nav)}
+    ${nav(store.links)}
     ${main(state)}
     ${footer()}
   `;
   router.updatePageLinks();
+
+  const selectElement = document.getElementById("countrySelect");
+  if (selectElement) {
+    selectElement.addEventListener("change", () => {
+      console.log("abc", selectElement.value);
+      store.home.selectedCountry = selectElement.value;
+      console.log("countries", store.home.selectCountry);
+    });
+  }
 }
 
 render();

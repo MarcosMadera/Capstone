@@ -1,4 +1,6 @@
 export default {
   header: "Venga Aquí",
-  view: "home"
+  view: "home",
+  countries: ["Bolivia", "Peru", "Colombia", "Ecuador", "Brazil"],
+  selectCountry: ""
 };
