@@ -3,6 +3,7 @@ import html from "html-literal";
 export default (state) => html`
 <section>
       <h2>About My Project</h2>
+      <h3>Weather ${state.weather.city} is: ${state.weather.temp}</h3>
       <p>This is the main page where you can learn about my project and how to use it.</p>
       <ol>
         <li>Hover over your chosen country</li>
