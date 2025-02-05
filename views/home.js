@@ -11,15 +11,6 @@ export default (state) => html`
         <li>Happiness ensues as you learn about your chosen country.</li>
       </ol>
 
-      <div>
-        <select id=countrySelect>
-          <option value="">Please choose a country</option>
-          ${
-            state.countries.map(country => `<option value="${country}">${country}</option>`)
-          }
-        </select>
-      </div>
-
       <a title="DavoO, CC BY-SA 3.0, via Wikimedia Commons"
      href="https://commons.wikimedia.org/wiki/File:South_America-en.svg"
      target="_blank">

@@ -75,9 +75,8 @@ router.hooks({
 
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
-    router.updatePageLinks();
-
     if (view === "createPoi") {
+
       const countryCities = store.createPoi.countryCities
 
       console.log("hello poi", countryCities)
@@ -123,9 +122,38 @@ router.hooks({
       console.log("value is ", store.createPoi.selection)
     })
 
+      const submitButton = document.querySelector("form");
+      submitButton.addEventListener("submit", (event) => {
+      event.preventDefault();
+      console.log("submit button clicked", store.createPoi.selection)
+      const inputList = event.target.elements;
+      const requestData = {
+      country: store.createPoi.selection.country,
+      city: store.createPoi.selection.city,
+      description:inputList.description.value,
+      latitude:inputList.latitude.value,
+      longitude:inputList.longitude.value
+      }
+      console.log("request data", requestData);
 
+      axios
+      .post(`${process.env.POI_API_URL}/pois`, requestData)
+      .then(response => {
+      console.log(response.data);
+      router.navigate("/createPoi");
+      })
+      .catch(error => {
+      console.log(error)
+      });
+
+    })
+// Get Pois
+    axios.get(`${process.env.POI_API_URL}/pois`).then(response => {
+    console.log('fetched pois', response.data)
+    store.createPoi.pois = response.data
+    })
     }
-
+ router.updatePageLinks();
     // add menu toggle to bars icon in nav bar
     document.querySelector(".fa-bars").addEventListener("click", () => {
         document.querySelector("nav > ul").classList.toggle("hidden--mobile");

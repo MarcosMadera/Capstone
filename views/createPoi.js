@@ -37,7 +37,24 @@ export default state => html`
         <input type="text" id="longitude" name="longitude" required>
       </div>
 
+      <div>
+        <button type="submit" id="submit">Submit</button>
+
+      </div>
+
 
      </form>
  </section>
+<section>
+  <h2>Here's Something of Interest for You</h2>
+<div id="poisContainer">
+${state.pois && state.pois.length > 0 ? state.pois.map(poi => `
+  <div class= "poi">
+  <h3>${poi.city}, ${poi.country}</h3>
+  <p>${poi.description}</p>
+  <p> Lat: ${poi.latitude}, Long: ${poi.longitude} </p>
+  </div>`) : ""}
+</div>
+
+</section>
 `;

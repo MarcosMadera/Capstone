@@ -1,5 +1,5 @@
 export default {
-  header: "Create POI",
+  header: "Points of Interest",
   view: "createPoi",
 countryCities: {
   bolivia: ["La Paz", "Sucre", "Potosi", "Oruro","Santa Cruz de la Sierra"],
@@ -8,6 +8,6 @@ countryCities: {
 selection: {
 country: null,
 city: null,
-
-}
+},
+pois: []
 }
