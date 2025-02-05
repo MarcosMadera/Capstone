@@ -14,10 +14,10 @@ const poiSchema = new mongoose.Schema({
     required: true,
   },
   latitude: {
-    type: Number,
+    type: String,
   },
   longitude: {
-    type: Number,
+    type: String,
   }
 });
 
